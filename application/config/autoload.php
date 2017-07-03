@@ -58,7 +58,7 @@ $autoload['packages'] = array(APPPATH.'third_party/codeigniter-debugbar');
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('console'); 
+$autoload['libraries'] = array('console','database', 'session','pagination'); 
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array();
+$autoload['helper'] = array('url');
 
 /*
 | -------------------------------------------------------------------
