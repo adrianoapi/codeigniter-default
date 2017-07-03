@@ -3,7 +3,7 @@
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
-            <th>#</th>
+            <th># resp</th>
             <th>Nome</th>
             <th>Email</th>
             </thead>
