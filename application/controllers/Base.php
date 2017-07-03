@@ -26,11 +26,11 @@ class Base extends CI_Controller
     {
         $config = array(
             "base_url" => base_url('usuarios/p'),
-            "per_page" => 3,
+            "per_page" => 5,
             "num_links" => 3,
             "uri_segment" => 3,
             "total_rows" => $this->modelsusuarios->CountAll(),
-            "full_tag_open" => "<ul class='pagination'>",
+            "full_tag_open" => "<ul class='pagination' id='ajaxPagination'>",
             "full_tag_close" => "</ul>",
             "first_link" => FALSE,
             "last_link" => FALSE,
@@ -53,7 +53,13 @@ class Base extends CI_Controller
         $data['pagination'] = $this->pagination->create_links();
         $offset = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $data['usuarios'] = $this->modelsusuarios->GetAll(null, null, $config['per_page'], $offset);
-        $this->load->view('home', $data);
+        if (!$this->input->is_ajax_request()) {
+            $this->load->view('home', $data);
+        } else {
+            $this->load->view('pagina-resultados', $data);
+        }
+        // debug
+         $this->output->enable_profiler(true);
     }
 
 }

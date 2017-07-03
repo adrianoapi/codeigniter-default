@@ -1,10 +1,10 @@
 <?php $this->load->view('commons/cabecalho'); ?>
 <div class="container">
     <div class="page-header">
-        <h1>Paginação de Resultados com CodeIgniter e Bootstrap</h1>
+        <h1><?= rand(10, 100) ?> Paginação de Resultados com CodeIgniter e Bootstrap</h1>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" id="RegistrosPagina">
             <?php if ($usuarios): ?>
                 <div class="table-responsive">
                     <table class="table table-striped">
