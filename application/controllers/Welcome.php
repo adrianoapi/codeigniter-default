@@ -1,25 +1,31 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once dirname(__FILE__) . '/../../vendor/autoload.php';
 
-class Welcome extends CI_Controller {
+use Spipu\Html2Pdf\Html2Pdf;
+use Spipu\Html2Pdf\Exception\Html2PdfException;
+use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
-	{
-		$this->load->view('welcome_message');
-	}
+class Welcome extends CI_Controller
+{
+
+    public function index()
+    {
+        try {
+            ob_start();
+            include dirname(__FILE__) . '/../../examples/res/teste.php';
+            $content = ob_get_clean();
+
+            $html2pdf = new Html2Pdf('P', 'A4', 'fr');
+            $html2pdf->setDefaultFont('Arial');
+            $html2pdf->writeHTML($content);
+            $html2pdf->output('exemple00.pdf');
+        } catch (Html2PdfException $e) {
+            $formatter = new ExceptionFormatter($e);
+            echo $formatter->getHtmlMessage();
+        }
+        #$this->load->view('welcome_message');
+    }
+
 }

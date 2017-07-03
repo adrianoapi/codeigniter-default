@@ -12,7 +12,8 @@
 	},
 	"require": {
 		"php": ">=5.4.8",
-		"ensepar/html2pdf": "^4.0"
+		"ensepar/html2pdf": "^4.0",
+		"spipu/html2pdf": "^5.0"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
