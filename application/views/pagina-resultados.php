@@ -1,5 +1,6 @@
 
 <?php if ($usuarios): ?>
+    <?php echo $pagination; ?>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>

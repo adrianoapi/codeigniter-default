@@ -6,6 +6,7 @@
     <div class="row">
         <div class="col-md-12" id="RegistrosPagina">
             <?php if ($usuarios): ?>
+                <?php echo $pagination; ?>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>

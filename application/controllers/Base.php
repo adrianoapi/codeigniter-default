@@ -8,6 +8,7 @@ class Base extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->output->enable_profiler(true);
         $this->load->model('usuarios_model', 'modelsusuarios');
     }
 
@@ -26,7 +27,7 @@ class Base extends CI_Controller
     {
         $config = array(
             "base_url" => base_url('usuarios/p'),
-            "per_page" => 5,
+            "per_page" => 10,
             "num_links" => 3,
             "uri_segment" => 3,
             "total_rows" => $this->modelsusuarios->CountAll(),
@@ -58,8 +59,6 @@ class Base extends CI_Controller
         } else {
             $this->load->view('pagina-resultados', $data);
         }
-        // debug
-         $this->output->enable_profiler(true);
     }
 
 }
