@@ -1,15 +1,15 @@
 <style type="text/Css">
-<!--
-.test1
-{
-    border: solid 1px #FF0000;
-    background: #FFFFFF;
-    border-collapse: collapse;
-}
--->
+    <!--
+    .test1
+    {
+        border: solid 1px #FF0000;
+        background: #FFFFFF;
+        border-collapse: collapse;
+    }
+    -->
 </style>
 <page style="font-size: 14px">
-    <span style="font-weight: bold; font-size: 18pt; color: #FF0000; font-family: Times">Bonjour, voici quelques exemples<br></span>
+    <span style="font-weight: bold; font-size: 18pt; color: #FF0000; font-family: Times">Funcionou<br></span>
     <br>
     Retours à la ligne autorisés : &lt;br&gt;, &lt;br &gt;, &lt;br/&gt;, &lt;br /&gt; <br />
     <br>
@@ -64,7 +64,7 @@
         </tr>
         <tr>
             <td border="1"><barcode type="C39" value="Html2Pdf" label="none" style="width: 35mm; height: 8mm"></barcode></td>
-            <td border="1">A2</td>
+        <td border="1">A2</td>
         </tr>
     </table>
     <br>
