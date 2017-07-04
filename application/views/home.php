@@ -1,12 +1,12 @@
 <?php $this->load->view('commons/cabecalho'); ?>
+
 <div class="container">
     <div class="page-header">
-        <h1><?= rand(10, 100) ?> Paginação de Resultados com CodeIgniter e Bootstrap</h1>
+        <h1>Paginação de Resultados com CodeIgniter e Bootstrap</h1>
     </div>
     <div class="row">
-        <div class="col-md-12" id="RegistrosPagina">
+        <div class="col-md-12" id="registros-pagina">
             <?php if ($usuarios): ?>
-                <?php echo $pagination; ?>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -25,9 +25,10 @@
                         </tbody>
                     </table>
                 </div>
-                <?php echo $pagination; ?>
             <?php endif; ?>
+            <?php echo $pagination; ?>
         </div>
     </div>
 </div>
+
 <?php $this->load->view('commons/rodape'); ?>

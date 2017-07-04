@@ -12,26 +12,16 @@ class Base extends CI_Controller
         $this->load->model('usuarios_model', 'modelsusuarios');
     }
 
-//    public function index()
-//    {
-//        $this->console->exception(new Exception('test exception'));
-//        $this->console->debug(array('teste', 'teste', 'teste'));
-//        $this->console->info('Info message');
-//        $this->console->warning('Warning message');
-//        $this->console->error('Error message');
-//        $this->output->enable_profiler(true);
-//        $this->load->view('welcome_message');
-//    }
-
     public function index()
     {
         $config = array(
-            "base_url" => base_url('usuarios/p'),
-            "per_page" => 10,
+//            "base_url" => "#",
+            "base_url" => "#".base_url('usuarios/p'),
+            "per_page" => 3,
             "num_links" => 3,
             "uri_segment" => 3,
             "total_rows" => $this->modelsusuarios->CountAll(),
-            "full_tag_open" => "<ul class='pagination' id='ajaxPagination'>",
+            "full_tag_open" => "<ul class='pagination' onmouseover=\"pagTeste()\" id='ajax-pagination'>",
             "full_tag_close" => "</ul>",
             "first_link" => FALSE,
             "last_link" => FALSE,
@@ -50,10 +40,14 @@ class Base extends CI_Controller
             "num_tag_open" => "<li>",
             "num_tag_close" => "</li>"
         );
+
         $this->pagination->initialize($config);
+
         $data['pagination'] = $this->pagination->create_links();
+
         $offset = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['usuarios'] = $this->modelsusuarios->GetAll(null, null, $config['per_page'], $offset);
+        $data['usuarios'] = $this->modelsusuarios->GetAll('titulo', 'asc', $config['per_page'], $offset);
+
         if (!$this->input->is_ajax_request()) {
             $this->load->view('home', $data);
         } else {
