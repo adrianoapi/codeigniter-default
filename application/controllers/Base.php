@@ -17,7 +17,7 @@ class Base extends CI_Controller
         $config = array(
 //            "base_url" => "#",
             "base_url" => "#".base_url('usuarios/p'),
-            "per_page" => 3,
+            "per_page" => 10,
             "num_links" => 3,
             "uri_segment" => 3,
             "total_rows" => $this->modelsusuarios->CountAll(),
